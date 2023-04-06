@@ -20,4 +20,10 @@ export const manifest = defineManifest(async (env) => ({
   version: `${major}.${minor}.${patch}.${label}`,
   // semver is OK in "version_name"
   version_name: version,
+  content_scripts: [
+    {
+      matches: ['https://www.youtube.com/*'],
+      js: ['src/scripts/replaceThumbnail'],
+    },
+  ]
 }))
